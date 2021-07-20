@@ -5,11 +5,11 @@ def check_valid_passport(passport)
     raise 'byr' if !passport.key?('byr') || passport['byr'].to_i < 1920 || passport['byr'].to_i > 2002  
     raise 'iyr' if !passport.key?('iyr') || passport['iyr'].to_i < 2010 || passport['iyr'].to_i > 2020
     raise 'eyr' if !passport.key?('eyr') || passport['eyr'].to_i < 2020 || passport['eyr'].to_i > 2030
-    raise 'hgt' if !passport.key?('hgt') || !/[0-9]+(cm|in)/.match(passport['hgt']) 
+    raise 'hgt' if !passport.key?('hgt') || !/^[0-9]+(cm|in)$/.match(passport['hgt']) 
     height = passport['hgt'][0..-3].to_i
     raise 'hgt' if passport['hgt'].end_with?("cm") && (height.to_i < 150 || height.to_i > 193)
     raise 'hgt' if passport['hgt'].end_with?("in") && (height.to_i < 59 || height.to_i > 76)
-    raise 'hcl' if !passport.key?('hcl') || !/#[0-9a-f]{6}/.match(passport['hcl']) 
+    raise 'hcl' if !passport.key?('hcl') || !/^#[0-9a-f]{6}$/.match(passport['hcl']) 
     raise 'ecl' if !passport.key?('ecl') || !['amb','blu','brn','gry','grn','hzl','oth'].include?(passport['ecl'])
     raise 'pid' if !passport.key?('pid') || !/^[0-9]{9}$/.match(passport['pid'])
     
