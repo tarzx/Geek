@@ -11,7 +11,7 @@ def check_valid_passport(passport)
     raise 'hgt' if passport['hgt'].end_with?("in") && (height.to_i < 59 || height.to_i > 76)
     raise 'hcl' if !passport.key?('hcl') || !/#[0-9a-f]{6}/.match(passport['hcl']) 
     raise 'ecl' if !passport.key?('ecl') || !['amb','blu','brn','gry','grn','hzl','oth'].include?(passport['ecl'])
-    raise 'pid' if !passport.key?('pid') || !/[0-9]{9}/.match(passport['pid']) || passport['pid'].length != 9
+    raise 'pid' if !passport.key?('pid') || !/^[0-9]{9}$/.match(passport['pid'])
     
     return true
   rescue Exception => e
