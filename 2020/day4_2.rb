@@ -2,7 +2,7 @@ def check_valid_passport(passport)
   begin
     # puts passport
 
-    raise 'byr' if !passport.key?('byr') || passport['byr'].to_i < 1920 || passport['byr'].to_i > 2020  
+    raise 'byr' if !passport.key?('byr') || passport['byr'].to_i < 1920 || passport['byr'].to_i > 2002  
     raise 'iyr' if !passport.key?('iyr') || passport['iyr'].to_i < 2010 || passport['iyr'].to_i > 2020
     raise 'eyr' if !passport.key?('eyr') || passport['eyr'].to_i < 2020 || passport['eyr'].to_i > 2030
     raise 'hgt' if !passport.key?('hgt') || !/[0-9]+(cm|in)/.match(passport['hgt']) 
