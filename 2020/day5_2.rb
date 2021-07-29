@@ -34,12 +34,17 @@ File.open('d5_input.txt').each { |line| lines << line.strip }
 seat_ids = lines.map { |line| read_boarding_pass(line) }
 
 my_seat = 0
-sorted_seat = seat_ids.sort
-sorted_seat.each_with_index do |seat,i|
-  if seat - sorted_seat.first != i
-    my_seat = seat - 1
-    break
-  end
-end
+# sorted_seat = seat_ids.sort
+# sorted_seat.each_with_index do |seat,i|
+#   if seat - sorted_seat.first != i
+#     my_seat = seat - 1
+#     break
+#   end
+# end
+
+min = seat_ids.min
+max = seat_ids.max
+full = (max + min) * ((max - min)/2.0).ceil
+my_seat = full - seat_ids.inject(:+)
 
 puts "My seat id: #{my_seat}"
