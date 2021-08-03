@@ -40,13 +40,13 @@ def cal_total(list)
   return total
 end
 
-# def count_possibility(i, list)
-#   return 1 if i == list.length - 1
+# def count_possibility(list)
+#   return 1 if list.length == 1
 
 #   total = 0
 #   list.each_with_index do |adp, j|
-#     if j > i && list[j] - list[i] <= 3
-#       total += count_possibility(j, list)
+#     if j > 0 && list[j] - list[0] <= 3
+#       total += count_possibility(list[j..list.length - 1])
 #     end
 #   end
 
@@ -56,7 +56,7 @@ end
 # def cal_total(list)
 #   device = list.max + 3
 #   sorted_list = list.push(0).push(device).sort
-#   return count_possibility(0, sorted_list)
+#   return count_possibility(sorted_list)
 # end
 
 #---------Test---------#
