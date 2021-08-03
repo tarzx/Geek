@@ -18,7 +18,9 @@ def set_of_dif_1(list)
   return set_dif_1.select { |x| x.any? }.map { |x| x.uniq }
 end
 
-def cal_total(set)
+def cal_total(list)
+  set = set_of_dif_1(list)
+
   total = 1
   set.each do |s|
     if s.length == 3
@@ -32,25 +34,40 @@ def cal_total(set)
     elsif s.length == 7
       total *= 16
     end
+    # As checked max dif 1 length is 5
   end
 
   return total
 end
 
+# def count_possibility(i, list)
+#   return 1 if i == list.length - 1
+
+#   total = 0
+#   list.each_with_index do |adp, j|
+#     if j > i && list[j] - list[i] <= 3
+#       total += count_possibility(j, list)
+#     end
+#   end
+
+#   return total
+# end
+
+# def cal_total(list)
+#   device = list.max + 3
+#   sorted_list = list.push(0).push(device).sort
+#   return count_possibility(0, sorted_list)
+# end
+
 #---------Test---------#
 input1 = [16, 10, 15, 5, 1, 11, 7, 19, 6, 12, 4]
-
-set1 = set_of_dif_1(input1)
-puts "the total number of arrangements: #{cal_total(set1)}"
+puts "the total number of arrangements: #{cal_total(input1)}"
 
 input2 = [28, 33, 18, 42, 31, 14, 46, 20, 48, 47, 24, 23, 49, 45, 19, 38, 39, 11, 1, 32, 25, 35, 8, 17, 7, 9, 4, 2, 34, 10, 3]
-
-set2 = set_of_dif_1(input2)
-puts "the total number of arrangements: #{cal_total(set2)}"
+puts "the total number of arrangements: #{cal_total(input2)}"
 #----------------------#
 
 lines = Array.new
 File.open('d10_input.txt').each { |line| lines << line.strip.to_i }
 
-set = set_of_dif_1(lines)
-puts "the total number of arrangements: #{cal_total(set)}"
+puts "the total number of arrangements: #{cal_total(lines)}"
