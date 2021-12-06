@@ -34,7 +34,7 @@ input = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100",
 result = count_bit(input)
 mcb = find_most_common(result)
 lcb = find_least_common(result)
-puts "Most: #{mcb}, Least: #{lcb}, Multiple: #{mcb * lcb}"
+puts "Most: #{mcb}, Least: #{lcb}, Multiply: #{mcb * lcb}"
 
 #----------------------#
 
@@ -44,4 +44,4 @@ File.open('d3_input.txt').each { |line| lines << line.strip }
 result = count_bit(lines)
 mcb = find_most_common(result)
 lcb = find_least_common(result)
-puts "Most: #{mcb}, Least: #{lcb}, Multiple: #{mcb * lcb}"
+puts "Most: #{mcb}, Least: #{lcb}, Multiply: #{mcb * lcb}"

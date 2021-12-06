@@ -27,7 +27,7 @@ def oxygen_rate(list)
   for i in 0..bit_length-1
     count_bit = count_bit(list)
     list = select_most_common(list, count_bit, i)
-    
+
     break if list.size == 1
   end
 
@@ -51,7 +51,7 @@ input = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100",
 
 oxygen = oxygen_rate(input)
 carbon = carbon_rate(input)
-puts "Oxygen: #{oxygen}, Carbon: #{carbon}, Miltiply: #{oxygen * carbon}"
+puts "Oxygen: #{oxygen}, Carbon: #{carbon}, Multiply: #{oxygen * carbon}"
 
 #----------------------#
 
@@ -60,4 +60,4 @@ File.open('d3_input.txt').each { |line| lines << line.strip }
 
 oxygen = oxygen_rate(lines)
 carbon = carbon_rate(lines)
-puts "Oxygen: #{oxygen}, Carbon: #{carbon}, Miltiply: #{oxygen * carbon}"
+puts "Oxygen: #{oxygen}, Carbon: #{carbon}, Multiply: #{oxygen * carbon}"
