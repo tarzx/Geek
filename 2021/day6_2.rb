@@ -8,7 +8,7 @@ def glow(init, day)
   if day <= 0
     return init
   else
-    max_day = day >= 7 ? 7 : day
+    max_day = day > 7 ? 7 : day
     length = init.size > 9 ? init.size : 9
     list = Array.new(length, 0)
     init.each_with_index do |val, i|
@@ -24,7 +24,7 @@ def glow(init, day)
     end
     
     puts "#{day} - #{list}"
-    return day >= 7 ? glow(list, day - 7) : list
+    return day > 7 ? glow(list, day - 7) : list
   end
 end
 
