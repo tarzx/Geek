@@ -28,12 +28,13 @@ def bingo(lines)
   # Start game
   score = 0
   number_list.each do |number|
-    puts "Number: #{number}"
+    # puts "Number: #{number}"
     mark_number(board_list, number)
 
     bingo = get_bingo_boards(board_list)
     if bingo.any?
       bingo.each do |board|
+        # puts "#{number} - #{board}"
         board_list.delete_at(board_list.index(board))
       end
       # puts "#{bingo.size} - #{board_list.size}"

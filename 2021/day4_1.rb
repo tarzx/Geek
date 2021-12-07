@@ -17,6 +17,7 @@ end
 def bingo(lines)
   # Initial game
   number_list = get_number_list(lines.first)
+  puts "#{number_list}"
 
   board_list = Array.new
   lines.drop(1).each do |line|
@@ -27,11 +28,12 @@ def bingo(lines)
   # Start game
   score = 0
   number_list.each do |number|
-    puts "Number: #{number}"
+    # puts "Number: #{number}"
     mark_number(board_list, number)
 
     bingo = get_bingo_boards(board_list)
     if bingo
+      # puts "#{number} - #{bingo}"
       score = get_score(bingo, number)
       break
     end
