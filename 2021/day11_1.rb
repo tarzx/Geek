@@ -24,8 +24,6 @@ def process(dumbo, times)
 end
 
 def flash(dumbo)
-  # check = []
-  # dumbo.each { |row| check << row.dup }
   dumbo.each_with_index do |row, i|
     row.each_with_index do |o, j|
       if o > 9
