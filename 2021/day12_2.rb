@@ -12,8 +12,7 @@ def find_path(map)
   puts "#{map}"
   start_node = "start"
   set = Array.new
-  set = get_path(map, start_node, [start_node], set)
-  return set.size
+  return get_path(map, start_node, [start_node], set)
 end
 
 def get_path(map, start_node, nodes, set)
@@ -52,7 +51,7 @@ def cal(lines)
   map = get_map(lines)
   result = find_path(map)
 
-  return result
+  return result.size
 end
 
 #---------Test---------#
