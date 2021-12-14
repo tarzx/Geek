@@ -4,11 +4,10 @@ def cal(inputs, times)
   rules = get_rules(inputs[1])
 
   reform = run_rules(pair_pattern, rules, times)
-  count_letter = count_letter(reform)
-  count = cal_letter(count_letter, pattern)
-  puts "#{count}"
+  count_letter = count_letter(reform, pattern)
+  puts "#{count_letter}"
 
-  sort_list = get_min_max(count)
+  sort_list = get_min_max(count_letter)
   puts "#{sort_list.last[:count]}, #{sort_list.first[:count]}"
 
   return sort_list.last[:count] - sort_list.first[:count]
@@ -69,7 +68,7 @@ def find_rule(rules, pair)
   return pairs
 end
 
-def count_letter(pairs)
+def count_letter(pairs, pattern)
   count = Array.new
   pairs.each do |pair|
     pair[:pair].split("").each do |p|
@@ -82,7 +81,7 @@ def count_letter(pairs)
     end
   end
 
-  return count
+  return cal_letter(count, pattern)
 end
 
 def cal_letter(count_letter, pattern)
